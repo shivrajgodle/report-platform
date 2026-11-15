@@ -1,0 +1,38 @@
+// Plugins are declared here with "apply false" so each module
+// decides for itself whether it needs them.
+plugins {
+    id 'org.springframework.boot' version '3.3.5' apply false
+    id 'io.spring.dependency-management' version '1.1.6' apply false
+}
+
+// Settings shared by ALL modules
+subprojects {
+    apply plugin: 'java'
+    apply plugin: 'io.spring.dependency-management'
+
+    group = 'com.shiv.reportplatform'
+    version = '0.0.1-SNAPSHOT'
+
+    java {
+        toolchain {
+            languageVersion = JavaLanguageVersion.of(17) // Java 17 LTS
+        }
+    }
+
+    repositories {
+        mavenCentral()
+    }
+
+    // Import Spring Boot's dependency versions so we don't
+    // write version numbers for Spring libraries.
+    dependencyManagement {
+        imports {
+            mavenBom 'org.springframework.boot:spring-boot-dependencies:3.3.5'
+        }
+    }
+
+    // Use JUnit 5 for tests in every module
+    tasks.withType(Test).configureEach {
+        useJUnitPlatform()
+    }
+}

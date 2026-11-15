@@ -1,0 +1,5 @@
+// Name of the whole multi-module build
+rootProject.name = 'report-platform'
+
+// Each name here must match a folder with its own build.gradle
+include 'common', 'report-service', 'export-service'
