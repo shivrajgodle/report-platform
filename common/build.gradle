@@ -1,0 +1,10 @@
+// java-library lets us expose dependencies to modules that use this one
+plugins {
+    id 'java-library'
+}
+
+dependencies {
+    // "api" (not "implementation") because our DTOs expose these annotations
+    // to report-service and export-service. Version comes from the Spring BOM.
+    api 'jakarta.validation:jakarta.validation-api'
+}
