@@ -1,3 +1,17 @@
+server:
+  port: 8081
+
 spring:
   application:
-    name: report-platform
+    name: report-service
+  data:
+    mongodb:
+      # ${VAR:default} means: use env var MONGODB_URI if set, else the local default.
+      # Never hardcode production credentials in this file.
+      uri: ${MONGODB_URI:mongodb://admin:admin123@localhost:27017/reportdb?authSource=admin}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
