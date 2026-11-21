@@ -19,6 +19,9 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.springframework.boot:spring-boot-starter-validation'
 	implementation 'org.springframework.boot:spring-boot-starter-actuator'
+	// Aspose.Slides = PowerPoint. The "jdk16" classifier is required: Aspose publishes
+	// its Java jars with a classifier, and without it Gradle can't find the artifact.
+	implementation 'com.aspose:aspose-slides:24.10:jdk16'
 
 	// Aspose.Cells = Excel. Slides and Imaging come in the next steps.
 	// Check the Aspose repo for the newest version and bump if you like.
